@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>3era Preentrega Javascript</title>
+</head>
+<body>
+   <header>
+    <h1>Fragrantica</h1>
+    <p>Una enciclopedia en línea de perfumes, una revista de perfumes <br>y una comunidad de amantes de los perfumes.</p>
+  </header>
+
+<div class="barra-superior">
+  <div class="buscador">
+    <label for="filtro">Buscá por perfume</label>
+    <input type="text" name="filtro" id="filtro"/>
+    <button id="botonBuscar" class="btn-busqueda">BUSCAR</button>
+  </div>
+
+  <p id="saludo"></p>
+</div>
+    <div class="area-opciones">
+        <p id="opcion-usuario-marca"></p>
+        <p id="opcion-usuario-nota"></p>
+        <p id="opcion-usuario-anio"></p>
+        <p id="opcion-usuario-pais"></p>
+    </div>
+  
+    <main class="mainarea">
+    <section class="selector">
+
+        <h2>Seleccioná la marca</h2>
+        <select name="marca" id="marca">
+            <option value="Default">Seleccioná la marca</option>
+        </select>
+
+        <h2>Seleccioná las notas</h2>
+        <select name="nota" id="nota">
+            <option value="Default">Seleccioná las notas</option>
+        </select>
+
+        <h2>Seleccioná el año</h2>
+        <select name="anio" id="anio">
+            <option value="Default">Seleccioná el año</option>
+        </select>
+
+        <h2>Seleccioná el origen</h2>
+        <select name="origen" id="origen">
+            <option value="Default">Seleccioná el país</option>
+        </select>
+    </section>
+
+    <div id="favoritos"></div>
+   
+<section class="login">
+    <h2>Inicia sesión</h2>
+
+    <form id="login">
+        <div class="row mb-3">
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="username" placeholder="Usuario">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-sm-10">
+            <input type="password" class="form-control" id="userpass" placeholder="Contraseña">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-sm-10">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="check">
+              <label class="form-check-label" for="check">
+                Recordar
+              </label>
+            </div>
+          </div>
+        </div>
+        <input type="submit" class="btn btn-primary" id="ingreso" value="Ingresar">
+      </form>
+</section>
+
+    </main>
+    <script src="./js/main.js"></script>
+</body>
+</html>
