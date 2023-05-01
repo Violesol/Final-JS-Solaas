@@ -33,20 +33,45 @@ const paises = [
     "Estados Unidos",
     "Italia",   
 ]
+
+/*array productos*/
+
 const perfumes =[
-    {nombre: "Miss Dior Blooming", marca: "Dior", familia: "Floral", notas:"Jazmín", estrellas:3},
-    {nombre: "Mefisto", marca: "Xerjoff", familia: "Cítrico", notas:"Bergamota", estrellas:2},
-    {nombre: "Gucci Guilty", marca: "Gucci", familia: "Amaderado", notas:"Cuero", estrellas:4},
-    {nombre: "5th Avenue", marca: "Elizabeth Arden", familia: "Floral", notas:"Lila", estrellas:5},
-    {nombre: "Light Blue", marca: "Dolce&Gabbana", familia: "Cítrico", notas:"Mandarina", estrellas:5},
+    {nombre: "Dior Homme Intense", marca: "Dior", notas:"Lavanda", pais:"Francia", imagen:"./img/01-perfume.jpg", anio: 2022},
+    {nombre: "Miss Dior Blooming", marca: "Dior", notas:"Jazmín", pais:"Francia",imagen:"./img/02-perfume.jpg",anio: 2016},
+    {nombre: "Mefisto", marca: "Xerjoff", notas:"Bergamota", pais:"Italia", imagen:"./img/03-perfume.jpg",anio: 2022},
+    {nombre: "Gucci Guilty", marca: "Gucci", notas:"Cuero", pais:"Italia", imagen:"./img/04-perfume.jpg",anio: 2005},
+    {nombre: "5th Avenue", marca: "Elizabeth Arden", notas:"Lila", pais:"Estados Unidos",imagen:"./img/05-perfume.jpg", anio: 2022},
+    {nombre: "Light Blue", marca: "Dolce&Gabbana", notas:"Mandarina", pais:"Italia",imagen:"./img/06-perfume.jpg",anio: 2016},
+    {nombre: "Libre", marca: "Yves Saint Laurent", notas:"Vainilla", pais:"Francia",imagen:"./img/07-perfume.jpg",anio: 2022},
+    {nombre: "Coco Mademoiselle", marca: "Chanel", notas:"Vainilla", pais:"Francia",imagen:"./img/08-perfume.jpg",anio: 2005},
+    {nombre: "Ekos Alma", marca: "Natura", notas:"Bergamota", pais:"Brasil",imagen:"./img/09-perfume.jpg",anio: 2016},
+    {nombre: "Ilía", marca: "Natura", notas:"Jazmín", pais:"Brasil",imagen:"./img/10-perfume.jpg",anio: 2005},
 ]
 
-function buscarPerfume (arr, filtro){
-    const perfencontrado = arr.find((el) =>{
-        return el.nombre.includes (filtro);   
-})
-return perfencontrado;
+
+const contenedorPerfumes = document.querySelector("#grilla-perfumes");
+
+function cargarPerfumes(perfumeElegido){
+    perfumeElegido.forEach(perfume => {
+        const div = document.createElement("div");
+        div.classList.add("perfume");
+        div.innerHTML = `
+        <img class="foto-perfume" src="${perfume.imagen}" alt="${perfume.nombre}">
+        <div class="detalles-perfume">
+            <h3 class="nombre-perfume">${perfume.nombre}</h3>
+            <p class="marca-perfume">${perfume.marca}</p>
+            <p class="nota-perfume">${perfume.notas}</p>
+            <p class="anio-perfume">${perfume.anio}</p>
+            <p class="pais-perfume">${perfume.pais}</p>
+            <button class="favorito-agregar" id="${perfume.nombre}"><i class="bi bi-heart"></i>AGREGAR</button>
+          </div>
+        `;
+        contenedorPerfumes.append(div);
+    })
 }
+cargarPerfumes(perfumes)
+
 
 const btnBuscar=document.querySelector("#botonBuscar")
 const input=document.querySelector("#filtro")
@@ -58,22 +83,34 @@ const usuarioOrigen = document.querySelector("#opcion-usuario-pais")
 const selectorMarca= document.querySelector("#marca")
 const favoritoUsuario=document.querySelector("#favoritos")
 
+// function buscarPerfume (arr, filtro){
+//     const perfencontrado = arr.find((el) =>{
+//         return el.nombre.includes (filtro);   
+// })
+// return perfencontrado;
+// } 
 
-input.addEventListener("input", ()=>{
-    const encontrado=buscarPerfume(perfumes, input.value)
-    console.log(encontrado);
+input.addEventListener("input", (e)=>{
+    const encontrado = perfumes.filter(perfumes => perfumes.nombre ===e.currentTarget.filtro);
+    
+    cargarPerfumes(encontrado);
 })
 
-const favoritos=[];
-function guardarFiltro(){
-    localStorage.setItem("Favoritos", JSON.stringify(favoritos))
-}
+// input.addEventListener("input", ()=>{
+//     const encontrado=buscarPerfume(perfumes, input.value)
+//     console.log(encontrado);
+// })
 
-btnBuscar.addEventListener("click",()=>{
-    const encontrado=buscarPerfume(perfumes, input.value)
-    favoritos.push(encontrado)
-    guardarFiltro()
-})
+
+// btnBuscar.addEventListener("click",()=>{
+//     const encontrado=buscarPerfume(perfumes, input.value)
+//     localStorage.setItem("Resultado", JSON.stringify(encontrado))
+// })
+
+
+
+/*selector productos*/
+
 
 marcas.forEach((marca)=>{
     let option =document.createElement("option");
@@ -82,8 +119,10 @@ marcas.forEach((marca)=>{
     selectorMarca.appendChild(option);
 })
 
-selectorMarca.addEventListener("change", ()=>{
+selectorMarca.addEventListener("change", (e)=>{
     let option=selectorMarca.options[selectorMarca.selectedIndex].value;
+    const marcaElegida= perfumes.filter(perfumes => perfumes.marca===e.currentTarget.id);
+    cargarPerfumes(marcaElegida);
     usuarioMarca.innerHTML=`<p>Marca: ${option}</p>`    
 })
 
@@ -150,7 +189,12 @@ function datosUsuario(datos){
     let infoUsuario={usuario:inputUsuario.value, pass:inputPass.value}
 
     if(infoUsuario.usuario==="" || infoUsuario.pass===""){
-    saludoUsuario.innerHTML = "Campos requeridos";
+        Swal.fire({
+            text: "Todos los campos son requeridos",
+            icon: 'warning',
+            confirmButtonColor: '#ec5757;',
+            confirmButtonText: 'Ok'
+          })
     return; 
     }else{
         if(datos ==="sessionStorage"){
@@ -159,7 +203,23 @@ function datosUsuario(datos){
         if(datos ==="localStorage"){
             localStorage.setItem("item", JSON.stringify(infoUsuario))
         }
-        saludoUsuario.innerHTML = "Hola " + infoUsuario.usuario;
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          })
+          
+          Toast.fire({
+            icon: 'success',
+            title: '¡Bienvenido/a a Fragrantica\n ' + infoUsuario.usuario + " !"
+          })
+        saludoUsuario.innerHTML = infoUsuario.usuario;
         return infoUsuario;   
     }
 
