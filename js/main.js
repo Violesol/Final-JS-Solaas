@@ -47,7 +47,7 @@ const perfumes =[
     {nombre: "Coco Mademoiselle", marca: "Chanel", notas:"Vainilla", pais:"Francia",imagen:"./img/08-perfume.jpg",anio: 2005},
     {nombre: "Ekos Alma", marca: "Natura", notas:"Bergamota", pais:"Brasil",imagen:"./img/09-perfume.jpg",anio: 2016},
     {nombre: "Ilía", marca: "Natura", notas:"Jazmín", pais:"Brasil",imagen:"./img/10-perfume.jpg",anio: 2005},
-]
+];
 
 
 const contenedorPerfumes = document.querySelector("#grilla-perfumes");
@@ -64,7 +64,7 @@ function cargarPerfumes(perfumeElegido){
             <p class="nota-perfume">${perfume.notas}</p>
             <p class="anio-perfume">${perfume.anio}</p>
             <p class="pais-perfume">${perfume.pais}</p>
-            <button class="favorito-agregar" id="${perfume.nombre}"><i class="bi bi-heart"></i>AGREGAR</button>
+            <button class="favorito-btn" id="${perfume.nombre}"><i class="bi bi-heart"></i>AGREGAR</button>
           </div>
         `;
         contenedorPerfumes.append(div);
@@ -83,29 +83,29 @@ const usuarioOrigen = document.querySelector("#opcion-usuario-pais")
 const selectorMarca= document.querySelector("#marca")
 const favoritoUsuario=document.querySelector("#favoritos")
 
-// function buscarPerfume (arr, filtro){
-//     const perfencontrado = arr.find((el) =>{
-//         return el.nombre.includes (filtro);   
-// })
-// return perfencontrado;
-// } 
+function buscarPerfume (arr, filtro){
+    const perfencontrado = arr.find((el) =>{
+    return el.nombre.includes (filtro);   
+})
+return perfencontrado;
+} 
 
-input.addEventListener("input", (e)=>{
-    const encontrado = perfumes.filter(perfumes => perfumes.nombre ===e.currentTarget.filtro);
+// input.addEventListener("input", (e)=>{
+//     const encontrado = perfumes.filter(perfumes => perfumes.nombre ===e.currentTarget.filtro);
     
-    cargarPerfumes(encontrado);
+//     cargarPerfumes(encontrado);
+// })
+
+input.addEventListener("input", ()=>{
+const encontrado=buscarPerfume(perfumes, input.value)
+console.log(encontrado);
 })
 
-// input.addEventListener("input", ()=>{
-//     const encontrado=buscarPerfume(perfumes, input.value)
-//     console.log(encontrado);
-// })
 
-
-// btnBuscar.addEventListener("click",()=>{
-//     const encontrado=buscarPerfume(perfumes, input.value)
-//     localStorage.setItem("Resultado", JSON.stringify(encontrado))
-// })
+btnBuscar.addEventListener("click",()=>{
+    const encontrado=buscarPerfume(perfumes, input.value)
+    localStorage.setItem("Resultado", JSON.stringify(encontrado))
+})
 
 
 
@@ -234,5 +234,29 @@ btnIngreso.addEventListener("click",()=>{
 })
 
 
+/*asincronia y promesas*/
 
+card = document.querySelector(".card")
+const favoritoBtn = document.querySelector(".favorito-btn")
+
+
+function notificaFavoritos() {
+    favoritoBtn.addEventListener("click", () =>{
+    card.classList.add("mostrar")
+    setTimeout(()=>{
+        card.classList.remove ("mostrar")
+    },2500)
+    
+} )
+}
+notificaFavoritos();
+
+/*ajax fetch*/
+
+// fetch('./novedades/ultimosingresos.json')
+//     .then((res) => res.json())
+//     .then (novedades=> {
+//     console.log(novedades);
+//     cargarPerfumes(novedades)
+// })
 

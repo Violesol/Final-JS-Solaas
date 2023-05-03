@@ -11,8 +11,8 @@
 </head>
 <body>
    <header>
-    <h1>Fragrantica</h1>
-    <p>Una enciclopedia en línea de perfumes, una revista de perfumes <br>y una comunidad de amantes de los perfumes.</p>
+    <img class="logo" src="./img/fragrantica-logo-tagline-svg.svg">
+    <p>Fragrantica es una enciclopedia en línea de perfumes, una revista de perfumes <br>y una comunidad de amantes de los perfumes.</p>
   </header>
 
 <div class="barra-superior">
@@ -22,6 +22,12 @@
     <button id="botonBuscar" class="btn-busqueda">BUSCAR</button>
   </div>
 
+  <div class="card ocultar" style="width: 18rem;">
+    <svg width="64px" height="64px" viewBox="0 0 24 24" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><defs><style>.cls-1{fill:none;stroke:#ffffff;stroke-miterlimit:10;stroke-width:1.91px;}.cls-2{fill:#ffffff;}</style></defs><path class="cls-1" d="M12,3.41,10.09,1.5H1.5V20.59A1.9,1.9,0,0,0,3.41,22.5H20.59a1.9,1.9,0,0,0,1.91-1.91V3.41Z"></path><line class="cls-1" x1="1.5" y1="7.23" x2="22.5" y2="7.23"></line><path class="cls-2" d="M15.82,14a2.05,2.05,0,0,0-2.08-2,2.1,2.1,0,0,0-1.74.9,2.1,2.1,0,0,0-1.74-.9,2.05,2.05,0,0,0-2.08,2c0,2.36,3.82,3.71,3.82,3.71S15.82,16.38,15.82,14Z"></path></g></svg>
+    <div class="card-body">
+      <p class="card-text">Producto agregado a tu colección</p>
+    </div>
+  </div>
   <p id="saludo"></p>
   
 </div>
@@ -31,7 +37,7 @@
         <p id="opcion-usuario-anio"></p>
         <p id="opcion-usuario-pais"></p>
     </div>
-  
+    
   <main class="mainarea">
     <div class="selector">
 
@@ -55,10 +61,120 @@
             <option value="Default">Seleccioná el país</option>
         </select>
       </div>
-
+  
     <div id="grilla-perfumes" class="grilla-perfumes">
-     
+      <!-- <div class="perfume">
+        <img class="foto-perfume" src="./img/01-perfume.jpg" alt="">
+          <div class="detalles-perfume">
+              <h3 class="nombre-perfume">Dior Homme Intense</h3>
+              <p class="marca-perfume">Dior</p>
+              <p class="nota-perfume">Lavanda</p>
+              <p class="anio-perfume">2022</p>
+              <p class="pais-perfume">Francia</p>
+              <button class="favorito-btn"><i class="bi bi-heart"></i>AGREGAR</button>
+            </div>
+          </div>
+          <div class="perfume">
+            <img class="foto-perfume" src="./img/02-perfume.jpg" alt="">
+              <div class="detalles-perfume">
+                  <h3 class="nombre-perfume">Miss Dior Blooming</h3>
+                  <p class="marca-perfume">Dior</p>
+                  <p class="nota-perfume">Jazmín</p>
+                  <p class="anio-perfume">2016</p>
+                  <p class="pais-perfume">Francia</p>
+                  <button class="favorito-btn"><i class="bi bi-heart"></i>AGREGAR</button>
+                </div>
+              </div>
+              <div class="perfume">
+                <img class="foto-perfume" src="./img/03-perfume.jpg" alt="">
+                  <div class="detalles-perfume">
+                      <h3 class="nombre-perfume">Mefisto</h3>
+                      <p class="marca-perfume">Xerjoff</p>
+                      <p class="nota-perfume">Bergamota</p>
+                      <p class="anio-perfume">2022</p>
+                      <p class="pais-perfume">Italia</p>
+                      <button class="favorito-btn"><i class="bi bi-heart"></i>AGREGAR</button>
+                    </div>
+                  </div>
+                  <div class="perfume">
+                    <img class="foto-perfume" src="./img/04-perfume.jpg" alt="">
+                      <div class="detalles-perfume">
+                          <h3 class="nombre-perfume">Gucci Guilty</h3>
+                          <p class="marca-perfume">Gucci</p>
+                          <p class="nota-perfume">Cuero</p>
+                          <p class="anio-perfume">2005</p>
+                          <p class="pais-perfume">Italia</p>
+                          <button class="favorito-btn"><i class="bi bi-heart"></i>AGREGAR</button>
+                        </div>
+                      </div>
+                      <div class="perfume">
+                        <img class="foto-perfume" src="./img/05-perfume.jpg" alt="">
+                          <div class="detalles-perfume">
+                              <h3 class="nombre-perfume">5th Avenue</h3>
+                              <p class="marca-perfume">Gucci</p>
+                              <p class="nota-perfume">Lila</p>
+                              <p class="anio-perfume">2022</p>
+                              <p class="pais-perfume">Estados Unidos</p>
+                              <button class="favorito-btn"><i class="bi bi-heart"></i>AGREGAR</button>
+                            </div>
+                          </div>
+                          <div class="perfume">
+                            <img class="foto-perfume" src="./img/06-perfume.jpg" alt="">
+                              <div class="detalles-perfume">
+                                  <h3 class="nombre-perfume">Light Blue</h3>
+                                  <p class="marca-perfume">Dolce&Gabbana</p>
+                                  <p class="nota-perfume">Mandarina</p>
+                                  <p class="anio-perfume">2016</p>
+                                  <p class="pais-perfume">Italia</p>
+                                  <button class="favorito-btn"><i class="bi bi-heart"></i>AGREGAR</button>
+                                </div>
+                              </div>
+                              <div class="perfume">
+                                <img class="foto-perfume" src="./img/07-perfume.jpg" alt="">
+                                  <div class="detalles-perfume">
+                                      <h3 class="nombre-perfume">Libre</h3>
+                                      <p class="marca-perfume">Yves Saint Laurent</p>
+                                      <p class="nota-perfume">Vainilla</p>
+                                      <p class="anio-perfume">2022</p>
+                                      <p class="pais-perfume">Francia</p>
+                                      <button class="favorito-btn"><i class="bi bi-heart"></i>AGREGAR</button>
+                                    </div>
+                                  </div>
+                                  <div class="perfume">
+                                    <img class="foto-perfume" src="./img/08-perfume.jpg" alt="">
+                                      <div class="detalles-perfume">
+                                          <h3 class="nombre-perfume">Coco Mademoiselle</h3>
+                                          <p class="marca-perfume">Chanel</p>
+                                          <p class="nota-perfume">Vainilla</p>
+                                          <p class="anio-perfume">2005</p>
+                                          <p class="pais-perfume">Francia</p>
+                                          <button class="favorito-btn"><i class="bi bi-heart"></i>AGREGAR</button>
+                                        </div>
+                                      </div>
+                                      <div class="perfume">
+                                        <img class="foto-perfume" src="./img/09-perfume.jpg" alt="">
+                                          <div class="detalles-perfume">
+                                              <h3 class="nombre-perfume">Ekos Alma</h3>
+                                              <p class="marca-perfume">Natura</p>
+                                              <p class="nota-perfume">Bergamota</p>
+                                              <p class="anio-perfume">2016</p>
+                                              <p class="pais-perfume">Brasil</p>
+                                              <button class="favorito-btn"><i class="bi bi-heart"></i>AGREGAR</button>
+                                            </div>
+                                          </div>
+                                          <div class="perfume">
+                                            <img class="foto-perfume" src="./img/10-perfume.jpg" alt="">
+                                              <div class="detalles-perfume">
+                                                  <h3 class="nombre-perfume">Ilía</h3>
+                                                  <p class="marca-perfume">Natura</p>
+                                                  <p class="nota-perfume">Jazmín</p>
+                                                  <p class="anio-perfume">2005</p>
+                                                  <p class="pais-perfume">Brasil</p>
+                                                  <button class="favorito-btn"><i class="bi bi-heart"></i>AGREGAR</button>
+                                                </div>
+                                              </div> -->
     </div>
+    
 
 <div class="login">
     <h2>Inicia sesión</h2>
