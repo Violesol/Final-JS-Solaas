@@ -7,30 +7,23 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/styles.css">
-    <title>ENTREGA FINAL Javascript</title>
+    <title>Favoritos</title>
 </head>
 <body>
-   <header>
+  <header>
     <img class="logo" src="./img/fragrantica-logo-tagline-svg.svg">
     <div class="barra-superior">
       <div class="buscador">
         <input type="search" placeholder="Buscá por perfume, nota, marca.." name="filtro" id="filtro" class="filtro"/>
         <button id="botonBuscar" class="btn-busqueda">BUSCAR</button>
       </div>
-      <a class="btn-ver-favoritos" href="./favoritos.html">VER FAVORITOS</a>
+     
   </header>
 
   <div class="intro">
-    <p class="texto-intro">Bienvenidx a la enciclopedia en línea de perfumes, una revista  y una comunidad de amantes de los perfumes.
-      Descubre el mundo de los perfumes con Fragrantica, un recurso en línea completo, revista y comunidad dedicada a los entusiastas de las fragancias.</p>
+    <p>Fragrantica es una enciclopedia en línea de perfumes, una revista de perfumes <br>y una comunidad de amantes de los perfumes.</p>
     
-    <div id="ver-novedades" class="ver-novedades">
-      <h3 class="titulo-novedades">FRAGANCIAS NUEVAS</h3>
-      
-    </div>
-
 </div>
-
 
   <div class="card ocultar" style="width: 18rem;">
     <svg width="64px" height="64px" viewBox="0 0 24 24" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><defs><style>.cls-1{fill:none;stroke:#ffffff;stroke-miterlimit:10;stroke-width:1.91px;}.cls-2{fill:#ffffff;}</style></defs><path class="cls-1" d="M12,3.41,10.09,1.5H1.5V20.59A1.9,1.9,0,0,0,3.41,22.5H20.59a1.9,1.9,0,0,0,1.91-1.91V3.41Z"></path><line class="cls-1" x1="1.5" y1="7.23" x2="22.5" y2="7.23"></line><path class="cls-2" d="M15.82,14a2.05,2.05,0,0,0-2.08-2,2.1,2.1,0,0,0-1.74.9,2.1,2.1,0,0,0-1.74-.9,2.05,2.05,0,0,0-2.08,2c0,2.36,3.82,3.71,3.82,3.71S15.82,16.38,15.82,14Z"></path></g></svg>
@@ -50,63 +43,32 @@
     
   <main class="mainarea">
     <div class="selector">
-
-        <h2>Seleccioná la marca</h2>
-        <select name="marca" id="marca">
-            <option value="Default">Seleccioná la marca</option>
-        </select>
-
-        <h2>Seleccioná las notas</h2>
-        <select name="nota" id="nota">
-            <option value="Default">Seleccioná las notas</option>
-        </select>
-
-        <h2>Seleccioná el año</h2>
-        <select name="anio" id="anio">
-            <option value="Default">Seleccioná el año</option>
-        </select>
-
-        <h2>Seleccioná el origen</h2>
-        <select name="origen" id="origen">
-            <option value="Default">Seleccioná el país</option>
-        </select>
-      </div>
+        <h3>TU COLECCIÓN</h3>
+        <a class="btn-volver" href="./index.html">VOLVER</a>
+ </div>
   
-    <div id="grilla-perfumes" class="grilla-perfumes">
+    <div id="contenedor-favoritos" class="contenedor-favoritos disabled">
+        <!-- <div class="perfume-favorito disabled">
+            <img class="fav-foto-perfume" src="./img/01-perfume.jpg" alt="">
+              <div class="detalles-perfume">
+                  <h3 class="fav-nombre-perfume">Dior Homme Intense</h3>
+                  <p class="fav-marca-perfume">Dior</p>
+                  <p class="fav-nota-perfume">Lavanda</p>
+                  <p class="fav-anio-perfume">2022</p>
+                  <p class="fav-pais-perfume">Francia</p>
+                  
+                </div> -->
+              </div>
       
     </div>
     
 
-<div class="login">
-    <h2>Inicia sesión</h2>
-
-    <form id="login">
-        <div class="row mb-3">
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="username" placeholder="Usuario">
-          </div>
-        </div>
-        <div class="row mb-3">
-          <div class="col-sm-10">
-            <input type="password" class="form-control" id="userpass" placeholder="Contraseña">
-          </div>
-        </div>
-        <div class="row mb-3">
-          <div class="col-sm-10">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="check">
-              <label class="form-check-label" for="check">
-                Recordar
-              </label>
-            </div>
-          </div>
-        </div>
-        <input type="submit" class="btn btn-primary" id="ingreso" value="Ingresar">
-      </form>
-    </div>
 
   </main>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="./js/main.js"></script>
+    <script src="./js/favoritos.js"></script>
+</body>
+</html>
+    
 </body>
 </html>

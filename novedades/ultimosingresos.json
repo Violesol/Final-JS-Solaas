@@ -1,82 +1,17 @@
 [
     {
-       "nombre":"Dior Homme Intense",
-       "marca":"Dior",
-       "notas":"Lavanda",
-       "pais":"Francia",
-       "imagen":"./img/01-perfume.jpg",
-       "anio":2022
+       "nombre":"À Fleur de Pêche",
+       "imagen":"./img/novedad01.jpg",
+       "anio":2023
     },
     {
-       "nombre":"Miss Dior Blooming",
-       "marca":"Dior",
-       "notas":"Jazmín",
-       "pais":"Francia",
-       "imagen":"./img/02-perfume.jpg",
-       "anio":2016
+       "nombre":"Íris",
+       "imagen":"./img/novedad02.jpg",
+       "anio":2023
     },
     {
-       "nombre":"Mefisto",
-       "marca":"Xerjoff",
-       "notas":"Bergamota",
-       "pais":"Italia",
-       "imagen":"./img/03-perfume.jpg",
-       "anio":2022
-    },
-    {
-       "nombre":"Gucci Guilty",
-       "marca":"Gucci",
-       "notas":"Cuero",
-       "pais":"Italia",
-       "imagen":"./img/04-perfume.jpg",
-       "anio":2005
-    },
-    {
-       "nombre":"5th Avenue",
-       "marca":"Elizabeth Arden",
-       "notas":"Lila",
-       "pais":"Estados Unidos",
-       "imagen":"./img/05-perfume.jpg",
-       "anio":2022
-    },
-    {
-       "nombre":"Light Blue",
-       "marca":"Dolce&Gabbana",
-       "notas":"Mandarina",
-       "pais":"Italia",
-       "imagen":"./img/06-perfume.jpg",
-       "anio":2016
-    },
-    {
-       "nombre":"Libre",
-       "marca":"Yves Saint Laurent",
-       "notas":"Vainilla",
-       "pais":"Francia",
-       "imagen":"./img/07-perfume.jpg",
-       "anio":2022
-    },
-    {
-       "nombre":"Coco Mademoiselle",
-       "marca":"Chanel",
-       "notas":"Vainilla",
-       "pais":"Francia",
-       "imagen":"./img/08-perfume.jpg",
-       "anio":2005
-    },
-    {
-       "nombre":"Ekos Alma",
-       "marca":"Natura",
-       "notas":"Bergamota",
-       "pais":"Brasil",
-       "imagen":"./img/09-perfume.jpg",
-       "anio":2016
-    },
-    {
-       "nombre":"Ilía",
-       "marca":"Natura",
-       "notas":"Jazmín",
-       "pais":"Brasil",
-       "imagen":"./img/10-perfume.jpg",
-       "anio":2005
+       "nombre":"Wonderland",
+       "imagen":"./img/novedad03.jpg",
+       "anio":2023
     }
- ]
+]
