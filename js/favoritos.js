@@ -1,14 +1,14 @@
 const perfumesFavoritos = JSON.parse(localStorage.getItem("productos-favoritos:"))
 
 const contenedorPerfumes = document.querySelector("#contenedor-favoritos");
-const perfuFavorito = document.querySelector(".perfume-favorito");
+
 
 if (perfumesFavoritos){
 
     contenedorPerfumes.classList.remove("disabled");
-    perfuFavorito.classList.remove("disabled");
+
     
-    perfumesFavoritos.forEach(prod => {
+    perfumesFavoritos.forEach(perfume => {
         const div = document.createElement("div");
         div.classList.add("perfume-favorito");
         div.innerHTML =`

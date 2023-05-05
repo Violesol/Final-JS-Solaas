@@ -302,7 +302,7 @@ function cargarNovedades(nuevo){
         areaNovedades.append(div);
     })
 }
-cargarNovedades(perfusNuevos)
+
 
 
 /*INTENTO DE CARGAR X FETCH LA SECCION NOVEDADES*/
@@ -310,7 +310,6 @@ cargarNovedades(perfusNuevos)
 fetch("./novedades/ultimosingresos.json")
     .then((res) => res.json())
     .then (novedades=> {
-    console.log(novedades);
     cargarNovedades(novedades);
 })
 

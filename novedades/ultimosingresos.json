@@ -1,17 +1,17 @@
 [
     {
        "nombre":"À Fleur de Pêche",
-       "imagen":"./img/novedad01.jpg",
+       "imagen":"./img/novedad-01.jpg",
        "anio":2023
     },
     {
        "nombre":"Íris",
-       "imagen":"./img/novedad02.jpg",
+       "imagen":"./img/novedad-02.jpg",
        "anio":2023
     },
     {
        "nombre":"Wonderland",
-       "imagen":"./img/novedad03.jpg",
+       "imagen":"./img/novedad-03.jpg",
        "anio":2023
     }
 ]
