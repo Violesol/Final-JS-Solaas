@@ -5,7 +5,6 @@ const marcas = [
     "Dior",
     "Victoria's Secret",
     "Natura",
-    "Jequiti",
     "Gucci",
     "Dolce&Gabbana",
     "Chanel",
@@ -18,11 +17,9 @@ const notas = [
     "Bergamota",
     "Lavanda",
     "Cuero",
-    "Pachuli",
-    "Cedro",
 ]
+
 const anios = [
-    "2000",
     "2005",
     "2016",
     "2022",   
@@ -38,24 +35,25 @@ const paises = [
 /*array productos*/
 
 const perfumes =[
-    {nombre: "Dior Homme Intense", marca: "Dior", notas:"Lavanda", pais:"Francia", imagen:"./img/01-perfume.jpg", anio: 2022},
-    {nombre: "Miss Dior Blooming", marca: "Dior", notas:"Jazmín", pais:"Francia",imagen:"./img/02-perfume.jpg",anio: 2016},
-    {nombre: "Mefisto", marca: "Xerjoff", notas:"Bergamota", pais:"Italia", imagen:"./img/03-perfume.jpg",anio: 2022},
-    {nombre: "Gucci Guilty", marca: "Gucci", notas:"Cuero", pais:"Italia", imagen:"./img/04-perfume.jpg",anio: 2005},
-    {nombre: "5th Avenue", marca: "Elizabeth Arden", notas:"Lila", pais:"Estados Unidos",imagen:"./img/05-perfume.jpg", anio: 2022},
-    {nombre: "Light Blue", marca: "Dolce&Gabbana", notas:"Bergamota", pais:"Italia",imagen:"./img/06-perfume.jpg",anio: 2016},
-    {nombre: "Libre", marca: "Yves Saint Laurent", notas:"Vainilla", pais:"Francia",imagen:"./img/07-perfume.jpg",anio: 2022},
-    {nombre: "Coco Mademoiselle", marca: "Chanel", notas:"Vainilla", pais:"Francia",imagen:"./img/08-perfume.jpg",anio: 2005},
-    {nombre: "Ekos Alma", marca: "Natura", notas:"Bergamota", pais:"Brasil",imagen:"./img/09-perfume.jpg",anio: 2016},
-    {nombre: "Ilía", marca: "Natura", notas:"Jazmín", pais:"Brasil",imagen:"./img/10-perfume.jpg",anio: 2005},
-    {nombre: "Bare", marca: "Victoria's Secret", notas:"Almizcle", pais:"Estados Unidos",imagen:"./img/11-perfume.jpg",anio: 2022},
-    {nombre: "Tease", marca: "Victoria's Secret", notas:"Jazmín", pais:"Estados Unidos",imagen:"./img/12-perfume.jpg",anio: 2016},
+    {nombre: "Dior Homme Intense", marca: "Dior", notas:"Lavanda", pais:"Francia", imagen:"./img/01-perfume.jpg", anio: "2022"},
+    {nombre: "Miss Dior Blooming", marca: "Dior", notas:"Jazmín", pais:"Francia",imagen:"./img/02-perfume.jpg",anio: "2016"},
+    {nombre: "Mefisto", marca: "Xerjoff", notas:"Bergamota", pais:"Italia", imagen:"./img/03-perfume.jpg",anio: "2022"},
+    {nombre: "Gucci Guilty", marca: "Gucci", notas:"Cuero", pais:"Italia", imagen:"./img/04-perfume.jpg",anio: "2005"},
+    {nombre: "5th Avenue", marca: "Elizabeth Arden", notas:"Lila", pais:"Estados Unidos",imagen:"./img/05-perfume.jpg", anio: "2022"},
+    {nombre: "Light Blue", marca: "Dolce&Gabbana", notas:"Bergamota", pais:"Italia",imagen:"./img/06-perfume.jpg",anio: "2016"},
+    {nombre: "Libre", marca: "Yves Saint Laurent", notas:"Vainilla", pais:"Francia",imagen:"./img/07-perfume.jpg",anio: "2022"},
+    {nombre: "Coco Mademoiselle", marca: "Chanel", notas:"Vainilla", pais:"Francia",imagen:"./img/08-perfume.jpg",anio: "2005"},
+    {nombre: "Ekos Alma", marca: "Natura", notas:"Bergamota", pais:"Brasil",imagen:"./img/09-perfume.jpg",anio: "2016"},
+    {nombre: "Ilía", marca: "Natura", notas:"Jazmín", pais:"Brasil",imagen:"./img/10-perfume.jpg",anio: "2005"},
+    {nombre: "Bare", marca: "Victoria's Secret", notas:"Almizcle", pais:"Estados Unidos",imagen:"./img/11-perfume.jpg",anio: "2022"},
+    {nombre: "Tease", marca: "Victoria's Secret", notas:"Jazmín", pais:"Estados Unidos",imagen:"./img/12-perfume.jpg",anio: "2016"},
 ];
 
 
 const contenedorPerfumes = document.querySelector("#grilla-perfumes");
 
 function cargarPerfumes(e){
+    contenedorPerfumes.innerHTML=""
     e.forEach(perfume => {
         const div = document.createElement("div");
         div.classList.add("perfume");
@@ -150,7 +148,9 @@ btnBuscar.addEventListener("click",()=>{{
 })
 
 
-/*selector de opciones*/
+/*SELECTOR DE OPCIONES*/
+
+/*selector de marca*/
 
 const selectorMarca= document.querySelector("#marca")
 
@@ -162,16 +162,19 @@ marcas.forEach((marca)=>{
 })
 
 selectorMarca.addEventListener("change", ()=>{
-    let option=selectorMarca.options[selectorMarca.selectedIndex].value;
-
-    if(option.innerText!=perfumes.marca){
-         perfume.classList.add("filtrado");
-    }            
+    let option=selectorMarca.options[selectorMarca.selectedIndex].value; 
+    usuarioMarca.innerHTML=`<p>Marca: ${option}</p>`       
 })
 
-// usuarioMarca.innerHTML=`<p>Marca: ${option}</p>`    
+const filtroMarca = document.getElementById("marca")
 
+filtroMarca.addEventListener("change", (e) =>{
+    const marca =e.target.value;
+    const perfumesFiltrados = perfumes.filter(perfume => perfume.marca === marca)
+    cargarPerfumes(perfumesFiltrados)
+})
 
+/*selector de notas*/
 
 const selectorNotas= document.querySelector("#nota")
 
@@ -187,6 +190,17 @@ selectorNotas.addEventListener("change", ()=>{
     usuarioNotas.innerHTML=`<p>Notas: ${option}</p>`    
 })
 
+const filtroNota = document.getElementById("nota")
+
+filtroNota.addEventListener("change", (e) =>{
+    const nota =e.target.value;
+    const perfumesFiltrados = perfumes.filter(perfume => perfume.notas === nota)
+    cargarPerfumes(perfumesFiltrados)
+})
+
+
+/*selector de año*/
+
 const selectorAnio= document.querySelector("#anio")
 
 anios.forEach((anio)=>{
@@ -201,6 +215,18 @@ selectorAnio.addEventListener("change", ()=>{
     usuarioAnio.innerHTML=`<p>Año: ${option}</p>`    
 })
 
+const filtroAnio = document.getElementById("anio")
+
+filtroAnio.addEventListener("change", (e) =>{
+    const anio =e.target.value;
+    const perfumesFiltrados = perfumes.filter(perfume => perfume.anio === anio)
+    cargarPerfumes(perfumesFiltrados)
+})
+
+
+/*selector de origen*/
+
+
 const selectorPais= document.querySelector("#origen")
 
 paises.forEach((pais)=>{
@@ -213,6 +239,15 @@ selectorPais.addEventListener("change", ()=>{
     let option=selectorPais.options[selectorPais.selectedIndex].value;
     usuarioOrigen.innerHTML=`<p>Origen: ${option}</p>`    
 })
+
+const filtroOrigen = document.getElementById("origen")
+
+filtroOrigen.addEventListener("change", (e) =>{
+    const origen =e.target.value;
+    const perfumesFiltrados = perfumes.filter(perfume => perfume.pais === origen)
+    cargarPerfumes(perfumesFiltrados)
+})
+
 
 /*Signin*/
 
@@ -309,7 +344,6 @@ function cargarNovedades(nuevo){
         areaNovedades.append(div);
     })
 }
-// cargarNovedades(perfusNuevos)
 
 
 /*ajax y fetch*/

@@ -4,16 +4,21 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    /* overflow-x: hidden; */
 }
 
 body {
     font-family: 'Urbanist', sans-serif;
-    background-image: url("../img/krystal-ng-PrQqQVPzmlw-unsplash.jpg");
+    background-image: url("../img/fondo-1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     color: rgb(62, 62, 62);
     
+}
+
+.fondo-fav{
+    background-image: url("../img/fondo-2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 header {
@@ -88,6 +93,7 @@ header {
 .titulo-novedades{
     margin: auto;
     font-size: 20px;
+    color: #544b7d;
 }
 
 .info-perfume {
@@ -100,10 +106,12 @@ header {
     flex-direction: row;
     justify-content: space-around;
     font-weight: 700;
+    padding-right: 60px;
 }
 
 .novedad h3{
     font-size: 14px;
+    margin: 8px 0px 0px 0px;
 }
 
 .novedad p{
@@ -151,7 +159,9 @@ h2 {
     justify-content: center;
     border-radius: 50px;
     width: 80%;
+    color: #544b7d;
 }
+
 .area-opciones p{
     padding-right: 5px;
 }
@@ -159,7 +169,7 @@ h2 {
 .selector{
     width: 100%;
     height: fit-content;
-    padding: 0 10%;
+    padding: 0px 20px 0px 60px;
     border-radius: 0px 10px 10px 0px; 
     color: rgb(62, 62, 62);
 }
@@ -168,7 +178,7 @@ select {
     width: inherit;
     background: none;
     border-radius: 50px;
-    color: gray;
+    color: rgb(62, 62, 62);
 }
 
 .foto-perfume, .fav-foto-perfume {
@@ -211,6 +221,13 @@ select {
     font-size: 18px;
     text-align: center;
     margin-top: 20px;
+}
+
+
+.titulo-coleccion{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-weight: 400;
 }
 
 .detalles-perfume {
