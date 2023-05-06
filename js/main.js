@@ -1,5 +1,6 @@
 
 
+
 const marcas = [
     "Dior",
     "Victoria's Secret",
@@ -62,10 +63,10 @@ function cargarPerfumes(e){
         <img class="foto-perfume" src="${perfume.imagen}" alt="${perfume.nombre}">
         <div class="detalles-perfume">
             <h3 class="nombre-perfume">${perfume.nombre}</h3>
-            <p class="marca-perfume">Marca: ${perfume.marca}</p>
-            <p class="nota-perfume">Nota: ${perfume.notas}</p>
-            <p class="anio-perfume">Año: ${perfume.anio}</p>
-            <p class="pais-perfume">Origen: ${perfume.pais}</p>
+            <p class="marca-perfume"><span class="bold">Marca:</span> ${perfume.marca}</p>
+            <p class="nota-perfume"><span class="bold">Nota:</span> ${perfume.notas}</p>
+            <p class="anio-perfume"><span class="bold">Año:</span> ${perfume.anio}</p>
+            <p class="pais-perfume"><span class="bold">Origen:</span> ${perfume.pais}</p>
             <button class="favorito-btn" id="${perfume.nombre}"><i class="bi bi-heart"></i>AGREGAR</button>
           </div>
         `;
@@ -119,7 +120,6 @@ const usuarioMarca = document.querySelector("#opcion-usuario-marca")
 const usuarioNotas = document.querySelector("#opcion-usuario-nota")
 const usuarioAnio = document.querySelector("#opcion-usuario-anio")
 const usuarioOrigen = document.querySelector("#opcion-usuario-pais")
-const selectorMarca= document.querySelector("#marca")
 const favoritoUsuario=document.querySelector("#favoritos")
 
 
@@ -152,6 +152,8 @@ btnBuscar.addEventListener("click",()=>{{
 
 /*selector de opciones*/
 
+const selectorMarca= document.querySelector("#marca")
+
 marcas.forEach((marca)=>{
     let option =document.createElement("option");
     option.value=marca
@@ -159,12 +161,17 @@ marcas.forEach((marca)=>{
     selectorMarca.appendChild(option);
 })
 
-selectorMarca.addEventListener("change", (e)=>{
+selectorMarca.addEventListener("change", ()=>{
     let option=selectorMarca.options[selectorMarca.selectedIndex].value;
-    const marcaElegida= perfumes.filter(perfumes => perfumes.marca===e.currentTarget.id);
-    cargarPerfumes(marcaElegida);
-    usuarioMarca.innerHTML=`<p>Marca: ${option}</p>`    
+
+    if(option.innerText!=perfumes.marca){
+         perfume.classList.add("filtrado");
+    }            
 })
+
+// usuarioMarca.innerHTML=`<p>Marca: ${option}</p>`    
+
+
 
 const selectorNotas= document.querySelector("#nota")
 
@@ -245,7 +252,7 @@ function datosUsuario(datos){
         }
         const Toast = Swal.mixin({
             toast: true,
-            position: 'top-end',
+            position: 'top',
             showConfirmButton: false,
             timer: 3000,
             timerProgressBar: true,
@@ -259,7 +266,8 @@ function datosUsuario(datos){
             icon: 'success',
             title: '¡Bienvenido/a a Fragrantica\n ' + infoUsuario.usuario + " !"
           })
-        saludoUsuario.innerHTML = infoUsuario.usuario;
+        saludoUsuario.innerHTML = infoUsuario.usuario +
+        `<svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M17.5 21.0001H6.5C5.11929 21.0001 4 19.8808 4 18.5001C4 14.4194 10 14.5001 12 14.5001C14 14.5001 20 14.4194 20 18.5001C20 19.8808 18.8807 21.0001 17.5 21.0001Z" stroke="#5c5c5c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="#5c5c5c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>`;
         return infoUsuario;   
     }
 
@@ -272,7 +280,6 @@ btnIngreso.addEventListener("click",()=>{
         datosUsuario("sessionStorage")
     }
 })
-
 
 
 /*seccion novedades*/
@@ -292,20 +299,20 @@ function cargarNovedades(nuevo){
     nuevo.forEach(novedad => {
         const div = document.createElement("div");
         div.classList.add("novedad");
-        div.innerHTML = `
+        div.innerHTML = `             
                     <img class="foto-perfu-nuevo" src=${novedad.imagen} alt="">
                     <div class="info-perfume">
                         <h3 class="nombre-perfume">${novedad.nombre}</h3>
                         <p class="anio-perfume">${novedad.anio}</p>
-                    </div>
+                    </div>      
         `;
         areaNovedades.append(div);
     })
 }
+// cargarNovedades(perfusNuevos)
 
 
-
-/*INTENTO DE CARGAR X FETCH LA SECCION NOVEDADES*/
+/*ajax y fetch*/
 
 fetch("./novedades/ultimosingresos.json")
     .then((res) => res.json())
