@@ -1,6 +1,5 @@
 
 
-
 const marcas = [
     "Dior",
     "Victoria's Secret",
